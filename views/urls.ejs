@@ -22,6 +22,7 @@
       <table class="table">
         <thead>
           <tr>
+            <th scope="col">ID</th>
             <th scope="col">Short URL ID</th>
             <th scope="col">Long URL</th>
             <th scope="col">Edit</th>
@@ -29,18 +30,15 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <td>https://www.google.com</td>
-            <td><a href="/urls/1/edit">Edit</a></td>
-            <td><a href="/urls/1/delete">Delete</a></td>
-          </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td>https://www.facebook.com</td>
-            <td><a class="btn btn-primary">Edit</a></td>
-            <td><button class="btn btn-danger">Delete</button></td>
-          </tr>
+            <% urls.forEach((url, index) => { %>
+              <tr>
+                <th scope="row"><%= index + 1 %></th>
+                <td><a href=<%= url.longUrl %>><%= url.shortUrl %></a></td>
+                <td><%= url.longUrl %></td>
+                <td><a href="/urls/1/edit">Edit</a></td>
+                <td><a href="/urls/1/delete">Delete</a></td>
+              </tr>
+            <% }) %>
         </tbody>
       </table>
     </main>
