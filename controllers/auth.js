@@ -1,10 +1,9 @@
-
 const showLogin = (req, res) => {
-    res.send('test login');
-}
+  res.render("login");
+};
 
 const showRegister = (req, res) => {
-    res.send('test register');
-}
+  res.send("test register");
+};
 
-module.exports = { showLogin , showRegister }
+module.exports = { showLogin, showRegister };
