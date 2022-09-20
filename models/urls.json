@@ -1,11 +1,15 @@
 {
   "fds9qW": {
+    "id": 1,
     "userId": 1,
+    "name": "Google",
     "shortUrl": "fds9qW",
     "longUrl": "http://www.google.com"
   },
   "b6Fd1r": {
+    "id": 2,
     "userId": 2,
+    "name": "Facebook",
     "shortUrl": "b6Fd1r",
     "longUrl": "http://www.facebook.com"
   }

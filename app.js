@@ -8,7 +8,6 @@ const fs = require('fs');
 const urlRoute  = require ('./routes/urls.js');
 const authRoute = require ('./routes/auth.js');
 
-
 app.set('view engine', 'ejs');
 
 app.use('/auth', authRoute);
