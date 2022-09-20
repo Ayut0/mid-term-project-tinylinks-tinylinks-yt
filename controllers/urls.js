@@ -1,4 +1,5 @@
 const urls = require('../models/urls.json')
+const HttpError = require('../models/httpError')
 
 const showUrl = (req, res) => {
     res.render('urls', {urls: Object.values(urls)})
@@ -22,15 +23,18 @@ const generateNewUrl = (req, res) =>{
 }
 
 //Single
-const singleUrl = (req, res) =>{
+const singleUrl = (req, res, next) =>{
     const urlId = Number(req.params.id);
     const urlList = Object.values(urls);
     const url = urlList.find((url) => url.id === urlId);
 
-    url ?
-    (res.render('singleUrl.ejs', {url: url}))
-    :
-    (res.status(404).send('seems like you have no url matches the id'));
+    if(!url){
+        return next(
+            new HttpError('seems like you have no url matches the id', 404)
+        )
+    }
+
+    res.render('singleUrl.ejs', {url: url})
 }
 
 const editUrl = (req, res) =>{
@@ -39,15 +43,18 @@ const editUrl = (req, res) =>{
 }
 
 //Make sure if the shortened url exists
-const redirectToRealUrl = (req, res) =>{
+const redirectToRealUrl = (req, res, next) =>{
     const urlId = Number(req.params.id);
     const urlList = Object.values(urls);
     const url = urlList.find((url) => url.id === urlId);
 
-    url?
-    (res.redirect(url.longUrl))
-    :
-    (res.status(404).send('Hmm... we failed to find the URL'));
+    if(!url){
+        return next(
+            new HttpError('Hmm... we failed to find the URL', 404)
+        )
+    }
+
+    res.redirect(url.longUrl)
 }
 
 module.exports = { showUrl, createUrl, generateNewUrl, singleUrl, editUrl, redirectToRealUrl, generateRandomUrl }
