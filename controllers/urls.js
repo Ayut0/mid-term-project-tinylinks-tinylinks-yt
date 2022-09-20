@@ -30,7 +30,7 @@ const singleUrl = (req, res) =>{
     url ?
     (res.render('singleUrl.ejs', {url: url}))
     :
-    res.send('seems like you have no url matches the id');
+    (res.status(404).send('seems like you have no url matches the id'));
 }
 
 const editUrl = (req, res) =>{
@@ -47,7 +47,7 @@ const redirectToRealUrl = (req, res) =>{
     url?
     (res.redirect(url.longUrl))
     :
-    (res.send('Hmm... we failed to find the URL'));
+    (res.status(404).send('Hmm... we failed to find the URL'));
 }
 
 module.exports = { showUrl, createUrl, generateNewUrl, singleUrl, editUrl, redirectToRealUrl, generateRandomUrl }
