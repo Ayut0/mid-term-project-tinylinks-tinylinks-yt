@@ -22,15 +22,28 @@
     <%- include('partials/header') %>
     <main style="margin: 1em">
       <h3>Create TinyURL</h3>
-      <form class="form-inline" method="post" action="" >
-        <div class="form-group mb-2">
-          <label for="longURL">Enter a URL:</label>
-          <input
+      <form class="form-inline" method="post" action="/urls/new" >
+        <div class="form-group mb-2 d-flex flex-wrap">
+          <div style="width: 90%;">
+            <label for="longURL">Name for url:</label>
+            <input
             class="form-control"
             type="text"
-            placeholder="http://"
-            style="width: 300px; margin: 1em"
-          />
+            name="name"
+            placeholder="Name"
+            style="width: 100%; margin: 1em"
+            />
+          </div>
+          <div style="width: 90%;">
+            <label for="longURL">Enter a URL:</label>
+            <input
+              class="form-control"
+              type="text"
+              name="longUrl"
+              placeholder="http://"
+              style="width: 100%; margin: 1em"
+            />
+          </div>
           <button type="submit" class="btn btn-primary">Submit</button>
         </div>
       </form>
