@@ -21,9 +21,11 @@
       </div>
       <div>
         <h5>Edit</h5>
-        <form method="post" action=/urls/<%= url.id %>>
+        <form method="post" action=/urls/<%= url.shortUrl %>>
+          <label for="updatedUrl">Name:</label>
+          <input type="text" name="name" placeholder="Name" />
           <label for="updatedUrl">New URL:</label>
-          <input type="text" name="shortUrl" placeholder="Input the new URL" />
+          <input type="text" name="longUrl" placeholder="Input the new URL" />
           <button type="submit" class="btn btn-primary">Edit</button>
         </form>
       </div>

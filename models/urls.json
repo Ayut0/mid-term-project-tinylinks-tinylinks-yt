@@ -3,22 +3,22 @@
     "id": 1,
     "userId": 1,
     "shortUrl": "fds9qW",
-    "name": "Google",
-    "longUrl": "http://www.google.com"
+    "name": "Rome2Rio",
+    "longUrl": "https://www.rome2rio.com/"
   },
   "b6Fd1r": {
     "id": 2,
     "userId": 2,
     "shortUrl": "b6Fd1r",
-    "name": "Facebook",
-    "longUrl": "http://www.facebook.com"
+    "name": "Twitter",
+    "longUrl": "https://twitter.com"
   },
   "flaojk": {
     "id": 3,
     "userId": 1,
     "shortUrl": "flaojk",
-    "name": "CICCC",
-    "longUrl": "https://ciccc.ca/"
+    "name": "Twitter",
+    "longUrl": "https://twitter.com"
   },
   "23hmmd": {
     "id": 4,

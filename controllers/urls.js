@@ -28,7 +28,6 @@ const createUrl = (req, res) =>{
     const urls = getUrls()
     console.log('urls', urls)
     res.render('newUrl')
-    
 }
 
 //function to generate new shortened url
@@ -58,9 +57,10 @@ const generateNewUrl = async (req, res) =>{
 
 //Single
 const singleUrl = (req, res, next) =>{
-    const urlId = Number(req.params.id);
+    const urlId = req.params.id;
+    console.log('id', urlId)
     const urlList = Object.values(urls);
-    const url = urlList.find((url) => url.id === urlId);
+    const url = urlList.find((url) => url.shortUrl === urlId);
 
     if(!url){
         return next(
@@ -70,9 +70,15 @@ const singleUrl = (req, res, next) =>{
     res.render('singleUrl.ejs', {url: url})
 }
 
-const editUrl = (req, res) =>{
-    console.log('Edit url', req.body)
-    res.send('Edited')
+//Edit
+const editUrl = async (req, res) =>{
+    const urlId = req.params.id;
+    const target = urls[urlId];
+    const updatedTarget = { ...target, ...req.body };
+
+    urls[urlId] = updatedTarget
+    updateUrls(urls);
+    await res.redirect('/urls')
 }
 
 //Make sure if the shortened url exists
