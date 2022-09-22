@@ -52,7 +52,7 @@ const generateNewUrl = async (req, res) =>{
         ...urls,
     }
     updateUrls(updatedUrlsList);
-    await res.redirect(`/urls/${id}`)
+    await res.redirect(`/urls/${shortUrl}`)
 }
 
 //Single
