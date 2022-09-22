@@ -58,7 +58,6 @@ const generateNewUrl = async (req, res) =>{
 //Single
 const singleUrl = (req, res, next) =>{
     const urlId = req.params.id;
-    console.log('id', urlId)
     const urlList = Object.values(urls);
     const url = urlList.find((url) => url.shortUrl === urlId);
 
@@ -81,6 +80,17 @@ const editUrl = async (req, res) =>{
     await res.redirect('/urls')
 }
 
+//delete
+const deleteUrl = async (req, res, next) =>{
+    const urlId = req.params.id;
+    console.log('id', urlId)
+    console.log('before delete', urls)
+    delete urls[urlId];
+    console.log('after deleted', urls);
+    updateUrls(urls);
+
+   await res.redirect('/urls')
+}
 //Make sure if the shortened url exists
 const redirectToRealUrl = (req, res, next) =>{
     const urlId = Number(req.params.id);
@@ -96,4 +106,4 @@ const redirectToRealUrl = (req, res, next) =>{
     res.redirect(url.longUrl)
 }
 
-module.exports = { showUrl, createUrl, generateNewUrl, singleUrl, editUrl, redirectToRealUrl, generateRandomUrl, getUrls }
+module.exports = { showUrl, createUrl, generateNewUrl, singleUrl, editUrl, redirectToRealUrl, generateRandomUrl, getUrls, deleteUrl }

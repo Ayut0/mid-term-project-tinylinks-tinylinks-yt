@@ -39,7 +39,7 @@
                 <td><a href=<%= url.longUrl %>><%= url.shortUrl %></a></td>
                 <td><%= url.longUrl %></td>
                 <td><a href=/urls/<%= url.shortUrl %>>Edit</a></td>
-                <td><a href="/urls/<%= url.id %>/delete">Delete</a></td>
+                <td><form action="/urls/<%= url.shortUrl %>/delete" method="post"><button type="submit">Delete</button></form></td>
               </tr>
             <% }) %>
         </tbody>
