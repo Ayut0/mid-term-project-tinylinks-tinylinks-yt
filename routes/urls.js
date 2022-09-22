@@ -1,6 +1,6 @@
 const express =  require('express');
 const router = express.Router();
-const { showUrl, createUrl, generateNewUrl, singleUrl, editUrl, redirectToRealUrl, getUrls } = require('../controllers/urls.js');
+const { showUrl, createUrl, generateNewUrl, singleUrl, editUrl, redirectToRealUrl, deleteUrl } = require('../controllers/urls.js');
 const  urls = require('../models/urls.json')
 const { showLogin, showRegister } = require('../controllers/auth.js');
 
@@ -13,13 +13,10 @@ router.post('/new', generateNewUrl)
 //edit
 //router.post('/:id', ); add function to receive the id - edit
 router.post('/:id', editUrl)
+
 //delete
 //router.post('/:id', ); add function to receive the id - delete
-router.post('/:id/delete', (req, res, next) =>{
-    const urlId = req.params.id;
-
-    res.json({message: 'Delete url'})
-})
+router.post('/:id/delete', deleteUrl)
 
 //Single url
 // router.get('/:id', ); add function to receive the id
