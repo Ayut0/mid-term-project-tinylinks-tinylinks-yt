@@ -1,16 +1,21 @@
 const express = require('express');
 const app = express();
 const PORT = 3000;
-const bodyParser = require('body-parser');
-const cookieSession = require('cookie-session');
-const bcrypt = require('bcrypt');
-const fs = require('fs');
+const cookieSession = require('cookie-session')
 const urlRoute  = require ('./routes/urls.js');
 const authRoute = require ('./routes/auth.js');
+const { landingPage } = require('./controllers/auth')
 
 app.set('view engine', 'ejs');
 
 app.use(express.urlencoded({ extended: true }));
+app.use(
+    cookieSession({
+        name: 'session',
+        keys: ['key1']
+    })
+)
+app.get('/', landingPage)
 app.use('/auth', authRoute);
 app.use('/urls', urlRoute);
 // app.use(bodyParser.json())

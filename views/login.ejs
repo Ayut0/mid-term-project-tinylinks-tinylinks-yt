@@ -22,14 +22,14 @@
     <%- include('partials/header') %>
     <main style="margin: 1em">
       <%- include('partials/errorUser') %>
-      <form>
+      <form method="post" action="/auth/login">
         <div>
           <label for="email">Email</label>
-          <input type="email" />
+          <input type="email" name="email"/>
         </div>
         <div>
           <label for="password">Password</label>
-          <input type="password" />
+          <input type="password" name="password" />
         </div>
         <button type="submit">Login</button>
       </form>

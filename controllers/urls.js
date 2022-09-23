@@ -1,9 +1,19 @@
 const urls = require('../models/urls.json')
 const HttpError = require('../models/httpError')
 const fs = require('fs');
+const { getUser } = require('./auth');
 
 const showUrl = (req, res) => {
-    res.render('urls', {urls: Object.values(urls)})
+    //Have to display urls based on logged in user. I did not set middleware fot this function in routes
+    const urlsArray = Object.values(urls)
+    const loggedInUserName = req.session.name
+    console.log('user', loggedInUserName)
+    const user = getUser(loggedInUserName)
+    let urlsCreatedByUser;
+    if(user){
+        urlsCreatedByUser = urlsArray.filter((url) => url.userId === user[0].id)
+    }
+    res.render('urls', {urls: Object.values(urls), user: user})
 }
 
 const generateRandomUrl = () =>{
@@ -25,8 +35,12 @@ const updateUrls = (updateUrlsList) =>{
 }
 
 const createUrl = (req, res) =>{
+    console.log('req', req.session.username)
+    const loggedInUserName = req.session.username
+    const user = getUser(loggedInUserName)
+    console.log('user' ,user)
     const urls = getUrls()
-    console.log('urls', urls)
+    // console.log('urls', urls)
     res.render('newUrl')
 }
 
@@ -34,17 +48,19 @@ const createUrl = (req, res) =>{
 const generateNewUrl = async (req, res) =>{
     console.log('registered new url', req.body);
     //Future, adding a Validation if input values are empty and there is already the same url or name in JSON
-    const nameOfUrl = req.body.name;
-    const url = req.body.url
     const shortUrl = generateRandomUrl();
-    const userId = 1;
     const urlsArray = Object.values(urls);
     const id = urlsArray.length + 1
+    const loggedInUserName = req.session.name;
+    const user = getUser(loggedInUserName);
+    const userId = user[0].id;
+    const creator = user[0].name
 
     urls[shortUrl] = {
         id: id,
         userId: userId,
         shortUrl: shortUrl,
+        creator: creator,
         ...req.body,
     }
     // console.log('After update', urls);
