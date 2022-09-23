@@ -1,7 +1,13 @@
 {
   "gjiodgioasf": {
     "id": "gjiodgioasf",
-    "email": "test@test.com",
+    "email": "sample@test.com",
     "password": "1234"
+  },
+  "873bb329-0324-4870-afe2-f2fe8ce547a1": {
+    "id": "873bb329-0324-4870-afe2-f2fe8ce547a1",
+    "name": "Yuto",
+    "email": "sample@sample.com",
+    "password": "$2b$12$9PEzhXSqxnV3JZcMIMA0JO.3sf/K88FPom3awcVOWfMinb1WWbeTq"
   }
 }

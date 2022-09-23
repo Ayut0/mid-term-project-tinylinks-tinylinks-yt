@@ -47,5 +47,13 @@
     "shortUrl": "hcf56s",
     "name": "Udemy",
     "longUrl": "https://www.udemy.com/"
+  },
+  "zxap0v": {
+    "id": 8,
+    "userId": "873bb329-0324-4870-afe2-f2fe8ce547a1",
+    "shortUrl": "zxap0v",
+    "creator": "Yuto",
+    "name": "YouTube",
+    "longUrl": "https://www.youtube.com/"
   }
 }
