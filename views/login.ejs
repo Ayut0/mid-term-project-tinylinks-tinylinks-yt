@@ -23,6 +23,11 @@
     <%- include('partials/header', {user: user}) %>
     <main style="margin: 1em; gap: 2rem; height: 50vh;" class="d-flex flex-column align-items-center">
       <h2>Welcome to TinyLinks!! Please login here</h2>
+      <% if(message){ %>
+        <div class="text-danger"><%= message %></div>
+      <% }else{ %>
+        <div></div>
+      <% } %>
       <form method="post" style="width: 35%;" action="/auth/login">
         <div class="form-group h-50">
           <label for="email">Email</label>
