@@ -15,12 +15,14 @@ const getUser = (name) => {
 
 const landingPage = (req, res) =>{
   const user = ''
-  res.render("login", {user: user})
+  const message = ''
+  res.render("login", {user: user, message: message})
 }
 
 const showLogin = (req, res) => {
   const user = ''
-  res.render("login", {user: user});
+  const message = ''
+  res.render("login", {user: user, message: message});
 };
 
 const loginUser = async (req, res) => {
@@ -36,7 +38,10 @@ const loginUser = async (req, res) => {
     isMatch = await bcrypt.compare(receivedPassword, email.password);
   }
   console.log(isMatch)
-  if (!email || !isMatch) return res.render("login.ejs");
+  if (!email || !isMatch){
+    const user = ''
+    return res.render("login.ejs", {user: user ,message: 'Invalid email or password'});
+  } 
   if (isMatch) {
     console.log("teste");
     req.session.username = email.name;
