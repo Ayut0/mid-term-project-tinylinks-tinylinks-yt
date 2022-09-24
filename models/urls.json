@@ -3,6 +3,7 @@
     "id": 2,
     "userId": "eae81a0f-d1b8-4b8b-bd77-11e8dd61284a",
     "shortUrl": "b6Fd1r",
+    "creator": "Yuto",
     "name": "Twitter",
     "longUrl": "https://twitter.com"
   },
@@ -10,6 +11,7 @@
     "id": 3,
     "userId": "eae81a0f-d1b8-4b8b-bd77-11e8dd61284a",
     "shortUrl": "flaojk",
+    "creator": "Yuto",
     "name": "YouTube",
     "longUrl": "https://www.youtube.com/"
   },
@@ -17,6 +19,7 @@
     "id": 5,
     "userId": "eae81a0f-d1b8-4b8b-bd77-11e8dd61284a",
     "shortUrl": "ppsj6e",
+    "creator": "Yuto",
     "name": "Amazon",
     "longUrl": "https://www.amazon.ca/"
   },
