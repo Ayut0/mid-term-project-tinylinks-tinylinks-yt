@@ -9,11 +9,9 @@ const showUrl = (req, res) => {
     const loggedInUserName = req.session.name
     console.log('user', loggedInUserName)
     const user = getUser(loggedInUserName)
-    let urlsCreatedByUser;
-    if(user){
-        urlsCreatedByUser = urlsArray.filter((url) => url.userId === user[0].id)
-    }
-    res.render('urls', {urls: Object.values(urls), user: user})
+    console.log('user info', user)
+    let urlsCreatedByUser = user.length !== 0 ? urlsArray.filter((url) => url.userId === user[0].id): urlsArray ;
+    res.render('urls', {urls: urlsCreatedByUser, user: user[0]})
 }
 
 const generateRandomUrl = () =>{
@@ -41,7 +39,7 @@ const createUrl = (req, res) =>{
     console.log('user' ,user)
     const urls = getUrls()
     // console.log('urls', urls)
-    res.render('newUrl')
+    res.render('newUrl', {user: user[0]})
 }
 
 //function to generate new shortened url
@@ -76,13 +74,15 @@ const singleUrl = (req, res, next) =>{
     const urlId = req.params.id;
     const urlList = Object.values(urls);
     const url = urlList.find((url) => url.shortUrl === urlId);
+    const loggedInUserName = req.session.name;
+    const user = getUser(loggedInUserName);
 
     if(!url){
         return next(
             new HttpError('seems like you have no url matches the id', 404)
         )
     }
-    res.render('singleUrl.ejs', {url: url})
+    res.render('singleUrl.ejs', {url: url, user: user[0]})
 }
 
 //Edit
@@ -99,10 +99,10 @@ const editUrl = async (req, res) =>{
 //delete
 const deleteUrl = async (req, res, next) =>{
     const urlId = req.params.id;
-    console.log('id', urlId)
-    console.log('before delete', urls)
+    // console.log('id', urlId)
+    // console.log('before delete', urls)
     delete urls[urlId];
-    console.log('after deleted', urls);
+    // console.log('after deleted', urls);
     updateUrls(urls);
 
    await res.redirect('/urls')

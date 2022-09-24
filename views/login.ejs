@@ -19,9 +19,9 @@
   </head>
 
   <body>
-    <%- include('partials/header') %>
+    <%- include('partials/header', {user: user}) %>
     <main style="margin: 1em">
-      <%- include('partials/errorUser') %>
+      <h2>Welcome to TinyLinks!! Please login here</h2>
       <form method="post" action="/auth/login">
         <div>
           <label for="email">Email</label>

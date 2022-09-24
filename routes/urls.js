@@ -1,10 +1,9 @@
 const express =  require('express');
 const router = express.Router();
 const { showUrl, createUrl, generateNewUrl, singleUrl, editUrl, redirectToRealUrl, deleteUrl } = require('../controllers/urls.js');
-const  urls = require('../models/urls.json')
-const { showLogin, showRegister, isLoggedIn } = require('../controllers/auth.js');
+const { isLoggedIn, restrictedView } = require('../controllers/auth.js');
 
-router.get('/', showUrl);
+router.get('/', restrictedView ,showUrl);
 
 //Create
 router.get('/new', isLoggedIn ,createUrl)

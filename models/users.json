@@ -1,13 +1,26 @@
 {
   "gjiodgioasf": {
     "id": "gjiodgioasf",
+    "name": "testuser",
     "email": "sample@test.com",
     "password": "1234"
   },
-  "873bb329-0324-4870-afe2-f2fe8ce547a1": {
-    "id": "873bb329-0324-4870-afe2-f2fe8ce547a1",
+  "eae81a0f-d1b8-4b8b-bd77-11e8dd61284a": {
+    "id": "eae81a0f-d1b8-4b8b-bd77-11e8dd61284a",
     "name": "Yuto",
     "email": "sample@sample.com",
-    "password": "$2b$12$9PEzhXSqxnV3JZcMIMA0JO.3sf/K88FPom3awcVOWfMinb1WWbeTq"
+    "password": "$2b$12$Yc1X6u16JviJ2y.kRSBm3eFUopTmTxUu1zBRomxeKf9I2TcESaa1a"
+  },
+  "7467386d-b3dc-46ff-91ce-2734d1439a75": {
+    "id": "7467386d-b3dc-46ff-91ce-2734d1439a75",
+    "name": "Lamar",
+    "email": "lamar@test.com",
+    "password": "$2b$12$MH.fKdmb9epjWQk70qvNMuDqXZL0Izb4yxYvDXqv3AoElJOUr.PqK"
+  },
+  "492ad39a-cff0-4398-8a0e-9d6074def5b7": {
+    "id": "492ad39a-cff0-4398-8a0e-9d6074def5b7",
+    "name": "boss",
+    "email": "boss@boss.com",
+    "password": "$2b$12$OmIvpoGgTWGIrUgu.pm4Ie2JigWCNiWSbMzrxT8EZPPrdWjzh.0ka"
   }
 }
