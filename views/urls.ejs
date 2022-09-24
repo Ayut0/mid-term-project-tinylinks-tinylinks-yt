@@ -17,7 +17,7 @@
     <title>TinyLinks</title>
   </head>
   <body>
-    <%- include('partials/header') %>
+    <%- include('partials/header',{user: user}) %>
     <main style="margin: 1em">
       <h3>My URLs</h3>
       <table class="table">
@@ -38,8 +38,8 @@
                 <td><a href=<%= url.longUrl %>><%= url.name %></a></td>
                 <td><a href=<%= url.longUrl %>><%= url.shortUrl %></a></td>
                 <td><%= url.longUrl %></td>
-                <td><a href=/urls/<%= url.shortUrl %>>Edit</a></td>
-                <td><form action="/urls/<%= url.shortUrl %>/delete" method="post"><button type="submit">Delete</button></form></td>
+                <td><a class="btn btn-outline-secondary" href=/urls/<%= url.shortUrl %>>Edit</a></td>
+                <td><form action="/urls/<%= url.shortUrl %>/delete" method="post"><button class="btn btn-outline-danger" type="submit">Delete</button></form></td>
               </tr>
             <% }) %>
         </tbody>

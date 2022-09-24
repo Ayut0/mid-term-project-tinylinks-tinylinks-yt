@@ -1,59 +1,47 @@
 {
-  "fds9qW": {
-    "id": 1,
-    "userId": 1,
-    "shortUrl": "fds9qW",
-    "name": "Rome2Rio",
-    "longUrl": "https://www.rome2rio.com/"
-  },
   "b6Fd1r": {
     "id": 2,
-    "userId": 2,
+    "userId": "eae81a0f-d1b8-4b8b-bd77-11e8dd61284a",
     "shortUrl": "b6Fd1r",
     "name": "Twitter",
     "longUrl": "https://twitter.com"
   },
   "flaojk": {
     "id": 3,
-    "userId": 1,
+    "userId": "eae81a0f-d1b8-4b8b-bd77-11e8dd61284a",
     "shortUrl": "flaojk",
     "name": "YouTube",
     "longUrl": "https://www.youtube.com/"
   },
-  "23hmmd": {
-    "id": 4,
-    "userId": 1,
-    "shortUrl": "23hmmd",
-    "name": "Bootstrap",
-    "longUrl": "https://getbootstrap.com/docs/4.0/utilities/sizing/"
-  },
   "ppsj6e": {
     "id": 5,
-    "userId": 1,
+    "userId": "eae81a0f-d1b8-4b8b-bd77-11e8dd61284a",
     "shortUrl": "ppsj6e",
     "name": "Amazon",
     "longUrl": "https://www.amazon.ca/"
   },
-  "6d2hx5": {
-    "id": 6,
-    "userId": 1,
-    "shortUrl": "6d2hx5",
-    "name": "Netflix",
-    "longUrl": "https://www.netflix.com"
-  },
-  "hcf56s": {
-    "id": 7,
-    "userId": 1,
-    "shortUrl": "hcf56s",
-    "name": "Udemy",
-    "longUrl": "https://www.udemy.com/"
-  },
-  "zxap0v": {
-    "id": 8,
-    "userId": "873bb329-0324-4870-afe2-f2fe8ce547a1",
-    "shortUrl": "zxap0v",
+  "94e6b7": {
+    "id": 5,
+    "userId": "eae81a0f-d1b8-4b8b-bd77-11e8dd61284a",
+    "shortUrl": "94e6b7",
     "creator": "Yuto",
-    "name": "YouTube",
-    "longUrl": "https://www.youtube.com/"
+    "name": "Gothub",
+    "longUrl": "https://github.com/"
+  },
+  "0rpla6": {
+    "id": 6,
+    "userId": "7467386d-b3dc-46ff-91ce-2734d1439a75",
+    "shortUrl": "0rpla6",
+    "creator": "Lamar",
+    "name": "NIKE",
+    "longUrl": "https://www.nike.com/ca/"
+  },
+  "462bnz": {
+    "id": 7,
+    "userId": "7467386d-b3dc-46ff-91ce-2734d1439a75",
+    "shortUrl": "462bnz",
+    "creator": "Lamar",
+    "name": "Adidas",
+    "longUrl": "https://www.adidas.ca"
   }
 }

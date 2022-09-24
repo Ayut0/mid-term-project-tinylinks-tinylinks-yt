@@ -1,5 +1,6 @@
 const { v4: uuidv4 } = require("uuid");
 const users = require("../models/users.json");
+const urls = require('../models/urls.json')
 const bcrypt = require('bcrypt')
 const { hashPassword } = require("../helpers/users");
 const fs = require('fs');
@@ -8,16 +9,18 @@ const HttpError = require("../models/httpError");
 const getUser = (name) => {
   const usersArray = Object.values(users);
   const user = usersArray.filter((user) => user.name === name);
-  // console.log(user)
+  console.log('loggedIn', user)
   return user;
 }
 
 const landingPage = (req, res) =>{
-  res.render("login")
+  const user = ''
+  res.render("login", {user: user})
 }
 
 const showLogin = (req, res) => {
-  res.render("login");
+  const user = ''
+  res.render("login", {user: user});
 };
 
 const loginUser = async (req, res) => {
@@ -37,6 +40,7 @@ const loginUser = async (req, res) => {
   if (isMatch) {
     console.log("teste");
     req.session.username = email.name;
+    req.session.name = email.name;
     req.session.isLoggedIn = true;
     console.log('name', req.session.name, 'loggedIn', req.session.isLoggedIn)
     return res.redirect("/urls");
@@ -45,7 +49,8 @@ const loginUser = async (req, res) => {
 };
 
 const showRegister = (req, res) => {
-  res.render("register");
+  const user = ''
+  res.render("register", {user: user});
 };
 
 const newUser = async (req, res, next) => {
@@ -94,30 +99,46 @@ const newUser = async (req, res, next) => {
     password: hashedPassword,
   };
 
-
   const updatedUsers = { ...users };
-  // console.log('updated users', updatedUsers)
 
   fs.writeFileSync("models/users.json", JSON.stringify(updatedUsers, null, 2));
 
   req.session.name = receivedName;
+  req.session.isLoggedIn = true;
   await res.redirect("/urls");
 };
 
-const logout = async (req, res) => {
-  await res.clearCookie("username");
-  await res.redirect("/auth/login");
-};
 
 const isLoggedIn = async (req, res, next) =>{
-  console.log(req.session, req.session.isLoggedIn);
+  console.log('session info' ,req.session, req.session.isLoggedIn);
+  const loggedInUserName = req.session.name;
+  console.log('loggedInUser', loggedInUserName);
   if(!req.session.isLoggedIn){
     return res.redirect('/auth/login')
   }
-  const loggedInUserName = req.session.name
   getUser(loggedInUserName)
   await next()
 }
+
+const restrictedView = async(req, res, next) =>{
+  console.log('session info' ,req.session, req.session.isLoggedIn);
+  const loggedInUserName = req.session.name;
+  console.log('loggedInUser', loggedInUserName);
+  const urlsArray = Object.values(urls)
+
+  if(!loggedInUserName){
+    return res.render('urls', {urls: urlsArray, user: ''})
+  }
+  
+  await next();
+}
+const logout = async (req, res) => {
+  req.session.isLoggedIn = false;
+  req.session.username = '';
+  req.session.name = '';
+  await res.clearCookie("username");
+  await res.redirect("/auth/login");
+};
 
 module.exports = {
   landingPage,
@@ -127,5 +148,6 @@ module.exports = {
   newUser,
   logout,
   isLoggedIn,
-  getUser
+  getUser,
+  restrictedView
 };
