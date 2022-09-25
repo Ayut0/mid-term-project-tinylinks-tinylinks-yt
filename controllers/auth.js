@@ -9,7 +9,7 @@ const HttpError = require("../models/httpError");
 const getUser = (name) => {
   const usersArray = Object.values(users);
   const user = usersArray.filter((user) => user.name === name);
-  console.log('loggedIn', user)
+  // console.log('loggedIn', user)
   return user;
 }
 
@@ -59,44 +59,38 @@ const showRegister = (req, res) => {
 };
 
 const newUser = async (req, res, next) => {
-  console.log('body', req.body)
+  // console.log('body', req.body)
   const receivedMail  = req.body.email;
   const receivedName = req.body.name
   const receivedPassword = req.body.password
   const hashedPassword = await hashPassword(receivedPassword);
   const id = uuidv4()
   const usersArray = Object.values(users);
-  console.log('name', receivedName, 'receivedMail', receivedMail, 'password', req.body.password)
+  // console.log('name', receivedName, 'receivedMail', receivedMail, 'password', req.body.password)
 
   if ((receivedMail === "")) {
-    // res.send("E-mail is empty.");
     //http error 406 means the information given by user is not acceptable
     return next(
       new HttpError("E-mail is empty. Make sure you put valid email", 406)
     )
   }else if(receivedName === ''){
-    // res.send("Please enter the username");
     return next(
-      new HttpError("Please enter the username. Make sure you put valid email", 406)
+      new HttpError("Please enter the username. Make sure you put valid username", 406)
     )
   }else if(receivedPassword === ''){
-    // res.send("Password is empty.");
     return next(
       new HttpError("Password is empty. Make sure you put valid email", 406)
     )
   }
 
   const findMail = usersArray.filter((user) => receivedMail === user.email);
-  // console.log('filtered email', findMail)
 
   if (findMail.length !== 0) {
-    // res.send("E-mail already exists.");
     return next(
       new HttpError("E-mail already exists.", 406)
     )
   }
 
-  // console.log('Pass!!')
   users[id] = {
     id: id,
     name: receivedName,
@@ -115,9 +109,9 @@ const newUser = async (req, res, next) => {
 
 
 const isLoggedIn = async (req, res, next) =>{
-  console.log('session info' ,req.session, req.session.isLoggedIn);
+  // console.log('session info' ,req.session, req.session.isLoggedIn);
   const loggedInUserName = req.session.name;
-  console.log('loggedInUser', loggedInUserName);
+  // console.log('loggedInUser', loggedInUserName);
   if(!req.session.isLoggedIn){
     return res.redirect('/auth/login')
   }
@@ -126,9 +120,9 @@ const isLoggedIn = async (req, res, next) =>{
 }
 
 const restrictedView = async(req, res, next) =>{
-  console.log('session info' ,req.session, req.session.isLoggedIn);
+  // console.log('session info' ,req.session, req.session.isLoggedIn);
   const loggedInUserName = req.session.name;
-  console.log('loggedInUser', loggedInUserName);
+  // console.log('loggedInUser', loggedInUserName);
   const urlsArray = Object.values(urls)
 
   if(!loggedInUserName){
