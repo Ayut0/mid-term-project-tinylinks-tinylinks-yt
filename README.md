@@ -1,27 +1,20 @@
-# Mid Term Project - TinyLinks
+# TinyLinks
 
-## Goal
+This is a school midterm project to build a web app using Node. The app will allow users to shorten long URLs much like TinyURL.com and bit.ly do.
 
-This project will have you building a web app using Node. The app will allow users to shorten long URLs much like TinyURL.com and bit.ly do.
+![Main Page]('./../asset/MainPage.png')
 
-You will build an HTTP Server that handles requests from the browser (client). Along the way you'll practice some advanced JavaScript and Node concepts, and you'll also understand more about Express, a web framework which is very popular in the Node community.
+We have an HTTP Server that handles requests from the browser (client). Along the way I applied some advanced JavaScript and Node concepts, and more about Express.
+
+File structure is a MVC.
 
 ## Project Outcome
 
-You will build a simple multipage app:
+This app is a simple multi-page app:
 
 - with authentication protection
 - that reacts appropriately to the user's logged-in state,
 - and permits the user to create, read, update, and delete (CRUD) a simple entity (e.g. blog posts, URL shortener).
-
-## Project Setup
-
-- One member of the team can accept the invitation by clicking the link:
-  [GitHub Classroom - Assignment](https://classroom.github.com/a/D56eEpAT)
-- Add other members to the team
-- Clone repository
-- Install dependencies
-- Run the app with `npm start`
 
 ## User Stories
 
@@ -43,7 +36,7 @@ _I want_ to be able to see how many times my subscribers visit my links
 
 _so that_ I can learn what content they like.
 
-## Project Requirements
+## What we used as a Project Requirements
 
 - Express
 - EJS
@@ -64,7 +57,7 @@ if a user is not logged in, the header shows:
 - a link to the login page (/login)
 - a link to the registration page (/register)
 
-## Route Checklist
+## Route
 
 ### GET `/`
 
@@ -101,7 +94,7 @@ if user is not logged in:
 if user is logged in:
 
 - returns HTML with:
-  - the site header (see Display Requirements above)
+  - the site header 
   - a form which contains:
     - a text input field for the original (long) URL
     - a submit button which makes a POST request to /urls
@@ -191,6 +184,7 @@ if user is not logged in:
 
 ### GET `/login`
 
+
 if user is logged in:
 
 - redirects to /urls
@@ -216,6 +210,8 @@ if user is not logged in:
 
 ### POST `/login`
 
+![Login Page]('./../asset/Login.png')
+
 if email and password params match an existing user:
 
 - sets a cookie
@@ -227,6 +223,7 @@ if email or password params don't match an existing user:
 
 ### POST `/register`
 
+![Register Page]('./../asset/Register.png')
 if email or password are empty:
 
 - returns HTML with a relevant error message
