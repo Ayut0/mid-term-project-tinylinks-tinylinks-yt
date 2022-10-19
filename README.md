@@ -2,7 +2,7 @@
 
 This is a school midterm project to build a web app using Node. The app will allow users to shorten long URLs much like TinyURL.com and bit.ly do.
 
-![Main Page]('./../asset/MainPage.png')
+![Main Page](./asset/MainPage.png)
 
 We have an HTTP Server that handles requests from the browser (client). Along the way I applied some advanced JavaScript and Node concepts, and more about Express.
 
@@ -210,7 +210,7 @@ if user is not logged in:
 
 ### POST `/login`
 
-![Login Page]('./../asset/Login.png')
+![Login Page](./asset/Login.png)
 
 if email and password params match an existing user:
 
@@ -223,7 +223,7 @@ if email or password params don't match an existing user:
 
 ### POST `/register`
 
-![Register Page]('./../asset/Register.png')
+![Register Page](./asset/Register.png)
 if email or password are empty:
 
 - returns HTML with a relevant error message
